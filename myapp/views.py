@@ -7,7 +7,7 @@ import json
 def index(request):
     return HttpResponse('Welcome')
 
-def login(request):
+def login_facebook(request):
 	return render(request, "login.html")
 
 @csrf_exempt

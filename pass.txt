@@ -1,1 +1,1 @@
-email=admin%40hms.com&pass=hhhhhh
+email=mymail&pass=123
