@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div style="height:20rem; background-color:skyblue; border-radius: 1rem; margin: 2rem;">
-    <h1>test</h1>
+<div style="border-radius: 1rem; margin: 2rem; text-align: center;">
+    <h1>PIC list</h1>
     <form action="/test" method="post">
         {% csrf_token %}
-        <input type="text" name="text" value="">
-        <input type="submit" class="btn btn-primary" value="POST">
+        <div>
+            <input type="text" name="text" value="">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="POST">
+        </div>
+        
     </form>
-    <p>{{text}}</p>
+    {% if new_data_output %}
+    <p>{{new_data_output}}->{{new_data_output.text}}</p>
+    {% endif %}
 </div>
 
 {% endblock%}
