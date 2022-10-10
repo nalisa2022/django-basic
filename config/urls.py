@@ -22,4 +22,5 @@ urlpatterns = [
     # path('myapp', include("myapp.urls")),
     # path('account', include("accountapp.urls")),
     path('', include("accountapp.urls")),
+    path('register', include("registerapp.urls")),
 ]

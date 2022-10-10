@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="border-radius: 1rem; margin: 2rem; text-align: center;">
+    <h1>PIC list</h1>
+    <form action="/register" method="post">
+    {% comment %} <form action="{% url 'submit' %} "method='post'> {% endcomment %}
+        {% csrf_token %}
+        <div>
+            <input type="text" name="text" value="">
+        </div>
+        <div>
+            <input type="submit" class="btn btn-primary" value="POST">
+        </div>
+        
+    </form>
+    {% if new_data_output %}
+    {% for i in new_data_output %}
+    <p>{{i}}: {{i.name}}</p>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock%}
